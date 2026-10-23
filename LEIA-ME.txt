@@ -1,0 +1,25 @@
+A.R.E.S. — protótipo PWA (pronto para hospedagem estática)
+
+Arquivos:
+- index.html: interface do protótipo
+- manifest.json: informações para instalação como app
+- sw.js: cache básico para abrir a interface offline depois da primeira visita
+- icon.svg: ícone do projeto
+
+IMPORTANTE:
+Esta versão ainda NÃO está conectada a uma IA online real. O modo offline só mantém a interface disponível; não transforma o protótipo em um modelo de IA local.
+Não coloque senhas ou chaves de API dentro do index.html. Para conectar uma IA real, use um serviço/backend que mantenha as chaves privadas no servidor.
+
+Para testar localmente:
+- Abra index.html no navegador para testar a interface básica.
+- Recursos de instalação/PWA e service worker precisam de hospedagem HTTPS (por exemplo, GitHub Pages).
+
+Para publicar com GitHub Pages:
+1. Crie ou entre em uma conta no GitHub.
+2. Crie um repositório público chamado ares-assistente.
+3. Envie os quatro arquivos (index.html, manifest.json, sw.js e icon.svg) para a raiz do repositório.
+4. Nas configurações do repositório, abra Pages e selecione publicar a partir da branch principal (root).
+5. Aguarde o endereço do site aparecer na seção Pages e abra-o no Android.
+6. No Chrome Android, abra o menu ⋮ e procure “Adicionar à tela inicial” ou “Instalar app”.
+
+Este pacote não exige pagamentos, mas o GitHub e outros serviços podem mudar seus limites e condições.

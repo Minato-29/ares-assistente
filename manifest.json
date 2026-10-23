@@ -1,0 +1,19 @@
+{
+  "name": "A.R.E.S. — Assistente Pessoal",
+  "short_name": "A.R.E.S.",
+  "description": "Protótipo do assistente pessoal A.R.E.S.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050b14",
+  "theme_color": "#06101e",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

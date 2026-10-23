@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#06101e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>A.R.E.S. — Assistente pessoal</title>
+<style>
+:root{--bg:#050b14;--panel:#0a1727;--line:#123c5a;--cyan:#31d9ff;--text:#e9f8ff;--muted:#8fb4c8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#0b2941 0%,var(--bg) 58%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{width:min(920px,100%);margin:auto;padding:20px 14px 28px}
+header{text-align:center;padding:20px 8px 18px}
+.logo{width:76px;height:76px;margin:0 auto 12px;border:2px solid var(--cyan);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 24px #00bfff55,inset 0 0 20px #00bfff22;font-size:38px;color:var(--cyan)}
+h1{font-size:clamp(30px,8vw,48px);letter-spacing:.16em;margin:0;text-shadow:0 0 18px #00bfff66}
+.subtitle{color:var(--muted);font-size:12px;letter-spacing:.18em;margin-top:7px}
+.status{display:inline-flex;gap:7px;align-items:center;margin-top:13px;border:1px solid var(--line);border-radius:20px;padding:6px 11px;font-size:12px;color:#aeeeff}
+.dot{width:7px;height:7px;border-radius:50%;background:#43e6a8;box-shadow:0 0 8px #43e6a8}
+.card{border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#0b1c2dEE,#07111eF2);box-shadow:0 12px 40px #0005;overflow:hidden}
+.cardtop{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;letter-spacing:.08em}
+#chat{height:min(48vh,430px);min-height:270px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:88%;padding:11px 13px;border-radius:14px;line-height:1.45;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.bot{align-self:flex-start;background:#0d263b;border:1px solid #16496a}
+.user{align-self:flex-end;background:#07374b;border:1px solid #087da0}
+.tag{display:block;font-size:10px;letter-spacing:.1em;color:var(--cyan);margin-bottom:5px}
+form{padding:13px;display:flex;gap:8px;border-top:1px solid var(--line);background:#050e19}
+input{min-width:0;flex:1;background:#081726;border:1px solid #17415d;border-radius:12px;padding:13px;color:var(--text);font-size:15px;outline:none}
+input:focus{border-color:var(--cyan)}
+button{border:1px solid #16749b;background:#092a40;color:var(--cyan);border-radius:12px;padding:0 14px;font-weight:700;cursor:pointer;min-height:46px}
+button:active{transform:scale(.98)}
+#send{background:#087ea5;color:white}
+.actions{display:flex;gap:9px;flex-wrap:wrap;padding:13px}
+.actions button{flex:1}
+.note{font-size:12px;line-height:1.5;color:var(--muted);text-align:center;padding:15px 8px 0}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.feature{border:1px solid var(--line);border-radius:13px;padding:12px 8px;text-align:center;background:#071522;color:var(--muted);font-size:11px}
+.feature b{display:block;color:var(--cyan);font-size:12px;margin-bottom:4px}
+@media(max-width:520px){main{padding:10px}header{padding-top:18px}.features{grid-template-columns:1fr}.feature{padding:10px}.msg{max-width:94%}form{gap:6px;padding:9px}button{padding:0 10px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="logo" aria-hidden="true">Λ</div>
+  <h1>A.R.E.S.</h1>
+  <div class="subtitle">ASSISTENTE PESSOAL • PROTÓTIPO 01</div>
+  <div class="status"><span class="dot"></span> Interface iniciada</div>
+</header>
+<section class="card" aria-label="Conversa com ARES">
+  <div class="cardtop"><span>◈ CONSOLE DE CONVERSA</span><span>PT-BR</span></div>
+  <div id="chat" aria-live="polite">
+    <div class="msg bot"><span class="tag">A.R.E.S.</span>Olá! Sou o A.R.E.S., teu assistente pessoal. Este é meu primeiro protótipo: posso responder a alguns comandos básicos e falar usando os recursos do navegador. O cérebro de IA online será conectado numa próxima etapa.</div>
+  </div>
+  <form id="form">
+    <input id="message" autocomplete="off" placeholder="Escreve tua mensagem..." aria-label="Mensagem">
+    <button id="send" type="submit">Enviar</button>
+  </form>
+  <div class="actions">
+    <button id="voice" type="button">🎙️ Falar</button>
+    <button id="speak" type="button">🔊 Ler última resposta</button>
+    <button id="clear" type="button">Limpar conversa</button>
+  </div>
+</section>
+<div class="features">
+  <div class="feature"><b>◉ VOZ</b>Usa o microfone do navegador, se compatível.</div>
+  <div class="feature"><b>◇ PRIVACIDADE</b>Este protótipo não envia mensagens a uma IA externa.</div>
+  <div class="feature"><b>⚡ PRÓXIMA ETAPA</b>Conectar um modelo de IA de forma segura.</div>
+</div>
+<p class="note">Protótipo inicial gratuito. A conversa ainda não usa uma IA online real; não digites senhas, dados bancários ou informações privadas.</p>
+</main>
+<script>
+const chat=document.getElementById('chat'), input=document.getElementById('message');
+let lastAnswer='Olá! Sou o A.R.E.S. Ainda estou no protótipo inicial.';
+function addMessage(text,who){const div=document.createElement('div');div.className='msg '+who;const tag=document.createElement('span');tag.className='tag';tag.textContent=who==='bot'?'A.R.E.S.':'TU';div.appendChild(tag);div.appendChild(document.createTextNode(text));chat.appendChild(div);chat.scrollTop=chat.scrollHeight;return div}
+function answer(q){
+ const s=q.toLowerCase().trim();
+ if(/^(oi|olá|ola|e aí|eai|bom dia|boa tarde|boa noite)\b/.test(s)) return 'Olá! Tudo certo? Sou o A.R.E.S. Como posso te ajudar hoje?';
+ if(s.includes('teu nome')||s.includes('seu nome')||s.includes('quem é você')||s.includes('quem e voce')) return 'Meu nome é A.R.E.S., teu assistente pessoal em desenvolvimento.';
+ if(s.includes('hora')) return 'A hora do teu aparelho é '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})+'.';
+ if(s.includes('data')||s.includes('dia é')||s.includes('dia e')) return 'Hoje é '+new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+'.';
+ if(s.includes('ajuda')||s.includes('o que você faz')||s.includes('o que voce faz')) return 'Por enquanto sou um protótipo. Posso responder a saudações, mostrar data e hora e testar a voz. Na próxima etapa, vamos conectar uma IA real.';
+ if(s.includes('obrigad')) return 'Tamo junto! Estou sendo construído passo a passo.';
+ return 'Recebi tua mensagem: “'+q+'”. Ainda não estou conectado a uma IA avançada, então não consigo responder livremente por enquanto. Essa será nossa próxima etapa!';
+}
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();const q=input.value.trim();if(!q)return;addMessage(q,'user');input.value='';lastAnswer=answer(q);addMessage(lastAnswer,'bot')});
+document.getElementById('clear').addEventListener('click',()=>{chat.innerHTML='';lastAnswer='Conversa limpa. Como posso te ajudar?';addMessage('Conversa limpa. Vamos começar de novo!','bot')});
+function speak(text){if(!('speechSynthesis' in window)){addMessage('Este navegador não oferece leitura de voz.','bot');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='pt-BR';u.rate=1;speechSynthesis.speak(u)}
+document.getElementById('speak').addEventListener('click',()=>speak(lastAnswer));
+document.getElementById('voice').addEventListener('click',()=>{
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){addMessage('O reconhecimento de voz não está disponível neste navegador. Tenta usar um navegador compatível ou digita tua mensagem.','bot');return}
+ const rec=new SR();rec.lang='pt-BR';rec.interimResults=false;rec.maxAlternatives=1;
+ document.getElementById('voice').textContent='🎙️ Ouvindo...';
+ rec.onresult=e=>{input.value=e.results[0][0].transcript;document.getElementById('form').requestSubmit()};
+ rec.onerror=()=>addMessage('Não consegui reconhecer a voz. Confere a permissão do microfone e tenta de novo.','bot');
+ rec.onend=()=>document.getElementById('voice').textContent='🎙️ Falar';
+ try{rec.start()}catch(err){document.getElementById('voice').textContent='🎙️ Falar';addMessage('Não foi possível iniciar o microfone agora.','bot')}
+});
+</script>
+<script>if ("serviceWorker" in navigator && location.protocol.startsWith("http")) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{})); }</script>
+</body>
+</html>
